@@ -13,7 +13,7 @@
     /></a>
     <a href="https://github.com/oceanroleplay/discord.ts/actions"
       ><img
-        src="https://github.com/oceanroleplay/discord.ts/workflows/Build/badge.svg"
+        src="https://github.com/M2rsho/WilliamShakespeare/actions/workflows/node.js.yml/badge.svg"
         alt="Build status"
     /></a>
   </p>
