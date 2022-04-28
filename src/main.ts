@@ -6,6 +6,9 @@ import type { Interaction, Message } from "discord.js";
 import { Intents } from "discord.js";
 import { Client } from "discordx";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
@@ -45,6 +48,8 @@ bot.once("ready", async () => {
   //  await bot.clearApplicationCommands(
   //    ...bot.guilds.cache.map((g) => g.id)
   //  );
+
+  bot.user!.setActivity(`Discord.ts Test`, { type: "LISTENING" });
 
   console.log("Bot started");
 });

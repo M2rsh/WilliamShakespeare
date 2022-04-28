@@ -1,0 +1,12 @@
+# files
+.vscode
+#.env
+.env.local
+package-lock.json
+yarn.lock
+CHANGELOG.md
+
+# folders
+.turbo
+build
+node_modules

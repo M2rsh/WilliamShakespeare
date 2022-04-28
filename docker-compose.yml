@@ -3,5 +3,6 @@ services:
   app:
     build: .
     command: node build/main.js
+    env_file: .env
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
