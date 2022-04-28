@@ -3,7 +3,9 @@
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/220px-Shakespeare.jpg"
         alt="William Shakespeare"
-    /><
+    />
+  </p>
+  <p align="center">
     <a href="https://discord.com/invite/dfKMTx9Eea"
       ><img
         src="https://img.shields.io/discord/885976189049651200?color=5865F2&logo=discord&logoColor=white"
