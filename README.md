@@ -11,7 +11,7 @@
         src="https://img.shields.io/discord/885976189049651200?color=5865F2&logo=discord&logoColor=white"
         alt="Discord server"
     /></a>
-    <a href="https://github.com/oceanroleplay/discord.ts/actions"
+    <a href="https://github.com/M2rsho/WilliamShakespeare/actions/"
       ><img
         src="https://github.com/M2rsho/WilliamShakespeare/actions/workflows/node.js.yml/badge.svg"
         alt="Build status"
