@@ -51,9 +51,12 @@ bot.once("ready", async () => {
   await bot.guilds.fetch();
   await bot.initApplicationCommands();
   await bot.initApplicationPermissions();
-  //await bot.clearApplicationCommands(
-  //  ...bot.guilds.cache.map((g) => g.id)
-  //);
+  
+  /*
+  await bot.clearApplicationCommands(
+    ...bot.guilds.cache.map((g) => g.id)
+  );
+  */
 
   bot.user!.setActivity(`Your mum's moaning`, { type: "LISTENING" });
 
