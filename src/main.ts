@@ -9,6 +9,8 @@ import { Client } from "discordx";
 import dotenv from "dotenv";
 dotenv.config();
 
+a syntax error to check checks ({;
+
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
