@@ -1,13 +1,30 @@
 import "reflect-metadata";
-
 import { dirname, importx } from "@discordx/importer";
 import { Koa } from "@discordx/koa";
 import type { Interaction, Message } from "discord.js";
 import { Intents } from "discord.js";
 import { Client } from "discordx";
 
+
 import dotenv from "dotenv";
+import log4js from "log4js";
+
 dotenv.config();
+//import publicIp from 'public-ip';
+//const ipv4 = await publicIp.v4();
+
+log4js.configure({
+  appenders: {
+    out: { type: 'stdout' },
+    file: { type: 'multiFile', base: 'logs/', property: 'date', extension: '.log' },
+  },
+  categories: {
+    default: { appenders: ['out', 'file'], level: 'info' }
+  }
+});
+export const logger = log4js.getLogger("default");
+logger.addContext('date', Date.now())
+
 
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
@@ -23,35 +40,24 @@ export const bot = new Client({
   ],
 
   // Debug logs are disabled in silent mode
-  silent: false,
-
-  // Configuration for @SimpleCommand
+  silent: true,
   simpleCommand: {
     prefix: "!",
   },
 });
 
 bot.once("ready", async () => {
-  // Make sure all guilds are cached
+
   await bot.guilds.fetch();
-
-  // Synchronize applications commands with Discord
   await bot.initApplicationCommands();
-
-  // Synchronize applications command permissions with Discord
   await bot.initApplicationPermissions();
+  //await bot.clearApplicationCommands(
+  //  ...bot.guilds.cache.map((g) => g.id)
+  //);
 
-  // To clear all guild commands, uncomment this line,
-  // This is useful when moving from guild commands to global commands
-  // It must only be executed once
-  //
-  //  await bot.clearApplicationCommands(
-  //    ...bot.guilds.cache.map((g) => g.id)
-  //  );
+  bot.user!.setActivity(`Your mum's moaning`, { type: "LISTENING" });
 
-  bot.user!.setActivity(`Discord.ts Test`, { type: "LISTENING" });
-
-  console.log("Bot started");
+  logger.log("Info", "Bot Started");
 });
 
 bot.on("interactionCreate", (interaction: Interaction) => {
@@ -72,30 +78,21 @@ async function run() {
     dirname(import.meta.url) + "/{events,commands,api}/**/*.{ts,js}"
   );
 
-  // Let's start the bot
   if (!process.env.BOT_TOKEN) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
-
-  // Log in with your bot token
   await bot.login(process.env.BOT_TOKEN);
 
   // ************* rest api section: start **********
 
   // api: prepare server
   const server = new Koa();
-
-  // api: need to build the api server first
   await server.build();
-
-  // api: let's start the server now
   const port = process.env.PORT ?? 3000;
   server.listen(port, () => {
-    console.log(`discord api server started on ${port}`);
-    console.log(`visit localhost:${port}/guilds`);
+    logger.log("Info", `API Server Started. Visit http://localhost:${port}/)`);
+    
   });
-
-  // ************* rest api section: end **********
 }
 
 run();

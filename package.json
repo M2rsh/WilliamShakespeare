@@ -21,6 +21,8 @@
     "discordx": "^9.5.2",
     "dotenv": "^16.0.0",
     "koa": "^2.13.4",
+    "log4js": "^6.4.6",
+    "public-ip": "^5.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
