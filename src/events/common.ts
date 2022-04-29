@@ -8,8 +8,14 @@ export class Example {
     logger.error("Error", client.user?.username, error.message);
   }
   @On("interactionCreate")
-  onInteraction([interaction]: ArgsOf<"interactionCreate">, client: Client): void {
+  onInteraction(
+    [interaction]: ArgsOf<"interactionCreate">,
+    client: Client
+  ): void {
     if (!interaction.isCommand()) return;
-    logger.log("Info", `User: '${interaction.user?.username}', Command: '${interaction.commandName}'`);
+    logger.log(
+      "Info",
+      `User: '${interaction.user?.username}', Command: '${interaction.commandName}'`
+    );
   }
 }

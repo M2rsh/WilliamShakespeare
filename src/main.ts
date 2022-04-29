@@ -5,7 +5,6 @@ import type { Interaction, Message } from "discord.js";
 import { Intents } from "discord.js";
 import { Client } from "discordx";
 
-
 import dotenv from "dotenv";
 import log4js from "log4js";
 
@@ -15,16 +14,20 @@ dotenv.config();
 
 log4js.configure({
   appenders: {
-    out: { type: 'stdout' },
-    file: { type: 'multiFile', base: 'logs/', property: 'date', extension: '.log' },
+    out: { type: "stdout" },
+    file: {
+      type: "multiFile",
+      base: "logs/",
+      property: "date",
+      extension: ".log",
+    },
   },
   categories: {
-    default: { appenders: ['out', 'file'], level: 'info' }
-  }
+    default: { appenders: ["out", "file"], level: "info" },
+  },
 });
 export const logger = log4js.getLogger("default");
-logger.addContext('date', Date.now())
-
+logger.addContext("date", Date.now());
 
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
@@ -47,11 +50,10 @@ export const bot = new Client({
 });
 
 bot.once("ready", async () => {
-
   await bot.guilds.fetch();
   await bot.initApplicationCommands();
   await bot.initApplicationPermissions();
-  
+
   /*
   await bot.clearApplicationCommands(
     ...bot.guilds.cache.map((g) => g.id)
@@ -93,8 +95,7 @@ async function run() {
   await server.build();
   const port = process.env.PORT ?? 3000;
   server.listen(port, () => {
-    logger.log("Info", `API Server Started. Visit http://localhost:${port}/)`);
-    
+    logger.log("Info", `API Server Started. Visit http://localhost:${port}/`);
   });
 }
 
