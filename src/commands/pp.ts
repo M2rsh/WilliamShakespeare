@@ -3,14 +3,14 @@ import { Discord, Slash, SlashOption } from "discordx";
 
 @Discord()
 export class Command {
-  @Slash("rate", { description: "Rate something" })
+  @Slash("pp", { description: "Measure PP" })
   async rate(
-    @SlashOption("thing", { description: "Thing to rate" }) thing: string,
     @SlashOption("user", { description: "User to rate", required: false, type: "USER" }) user: User | undefined,
     interaction: CommandInteraction,
   ) {
+    const pp = Number((Math.random() * 20).toFixed(2));
     const embed = new MessageEmbed()
-      .setDescription(`${user ? user: interaction.user} is ${Math.floor(Math.random() * 100)}% ${thing}`)
+      .setDescription(`${user ? user: interaction.user} PP size is ${pp}cm (${(pp/2.54).toFixed(2)}inch)`)
       .setColor("#ffc800")
       .setTimestamp();
     interaction.reply({ embeds: [embed] });

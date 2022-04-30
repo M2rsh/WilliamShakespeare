@@ -3,14 +3,13 @@ import { Discord, Slash, SlashOption } from "discordx";
 
 @Discord()
 export class Command {
-  @Slash("rate", { description: "Rate something" })
+  @Slash("iq", { description: "Calculate IQ" })
   async rate(
-    @SlashOption("thing", { description: "Thing to rate" }) thing: string,
     @SlashOption("user", { description: "User to rate", required: false, type: "USER" }) user: User | undefined,
     interaction: CommandInteraction,
   ) {
     const embed = new MessageEmbed()
-      .setDescription(`${user ? user: interaction.user} is ${Math.floor(Math.random() * 100)}% ${thing}`)
+      .setDescription(`${user ? user: interaction.user} IQ is ${Math.floor(Math.random() * 200)}`)
       .setColor("#ffc800")
       .setTimestamp();
     interaction.reply({ embeds: [embed] });
