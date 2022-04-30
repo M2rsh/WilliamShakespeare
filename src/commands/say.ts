@@ -9,7 +9,7 @@ export class Command {
     text: string,
     interaction: CommandInteraction
   ) {
-    interaction.channel?.send({ content: text });
+    interaction.channel?.send({ content: text.replaceAll("@", "@\u200B") });
     await interaction.deferReply({ ephemeral: true });
   }
 }
