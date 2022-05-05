@@ -60,7 +60,7 @@ bot.once("ready", async () => {
   );
   */
 
-  bot.user!.setActivity(`Your mum's moaning`, { type: "LISTENING" });
+  bot.user!.setActivity(`Thy mum's moaning`, { type: "LISTENING" });
 
   logger.log("Info", "Bot Started");
 });
