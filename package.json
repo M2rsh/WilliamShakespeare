@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "build:changelog": "npx @discordx/changelog --root=src",
-    "dev": "node --loader ts-node/esm/transpile-only src/main.ts",
+    "dev": "set DEBUG=1 && node --loader ts-node/esm/transpile-only src/main.ts",
     "serve": "node build/main.js",
     "start": "nodemon --exec node --loader ts-node/esm/transpile-only src/main.ts"
   },

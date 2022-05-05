@@ -8,8 +8,8 @@ export class Command {
     @SlashOption("text", { description: "What do you want me to say?" })
     text: string,
     interaction: CommandInteraction
-  ) {
-    interaction.channel?.send({ content: text.replaceAll("@", "@\u200B") });
+  ): Promise<void> {
     await interaction.deferReply({ ephemeral: true });
+    interaction.channel?.send({ content: text.replaceAll("@", "@\u200B") });
   }
 }
