@@ -13,7 +13,7 @@ export class Command {
     if ((_user.id).toString()!='897913186114744390') {
       pp = Number((Math.random() * 20).toFixed(2));
     } else {
-      pp = 0;
+      pp = -30.00;
     }
     const embed = new MessageEmbed()
       .setDescription(`${_user} PP size is ${pp}cm (${(pp/2.54).toFixed(2)}inch)`)
