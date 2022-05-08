@@ -4,7 +4,7 @@ import { Discord, Slash, SlashOption } from "discordx";
 @Discord()
 export class Command {
   @Slash("iq", { description: "Calculate IQ" })
-  async rate(
+  async iq(
     @SlashOption("user", { description: "User to rate", required: false, type: "USER" }) user: User | undefined,
     interaction: CommandInteraction,
   ) {

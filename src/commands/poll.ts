@@ -10,7 +10,7 @@ import { ButtonComponent, Discord, Slash, SlashOption } from "discordx";
 @Discord()
 export class Command {
   @Slash("poll", { description: "Start a poll" })
-  async say(
+  async poll(
     @SlashOption("message", { description: "Message" }) message: string,
     @SlashOption("option1", { description: "Option 1" }) option1: string,
     @SlashOption("option2", { description: "Option 2" }) option2: string,
