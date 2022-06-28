@@ -12,10 +12,11 @@ export class Example {
     [interaction]: ArgsOf<"interactionCreate">,
     client: Client
   ): void {
+    process.on("uncaughtException", (e) => {
+      logger.error(e.message, `User: '${interaction.user?.username}' - '${interaction.user?.id}'`);
+    });
     if (!interaction.isCommand()) return;
-    logger.log(
-      "Info",
-      `User: '${interaction.user?.username}', Command: '${interaction.commandName}'`
+    logger.info(`User: '${interaction.user?.username}', Command: '${interaction.commandName}'`
     );
   }
 }

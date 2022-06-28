@@ -9,11 +9,12 @@ export class Command {
     text: string,
     interaction: CommandInteraction
   ): Promise<void> {
-    await interaction.deferReply({ ephemeral: true });
     var text = text.replaceAll("@", "@\u200B")
     if(text.length>2000) {
       interaction.reply({ content: "Error: Message is over 2000 characters.", ephemeral: true });
+      throw Error("Message is over 2000 characters.");
     } else {
+      await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: text });
     }
   }
