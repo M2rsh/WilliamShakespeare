@@ -54,11 +54,11 @@ bot.once("ready", async () => {
   await bot.initApplicationCommands();
   await bot.initApplicationPermissions();
 
-  
+  /*
   await bot.clearApplicationCommands(
     ...bot.guilds.cache.map((g) => g.id)
   );
-  
+  */
 
   bot.user!.setActivity(`Thy mum's moaning`, { type: "LISTENING" });
 
