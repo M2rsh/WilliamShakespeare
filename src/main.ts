@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { dirname, importx } from "@discordx/importer";
 import { Koa } from "@discordx/koa";
-import type { Interaction, Message } from "discord.js";
+import { Interaction, Message, MessageEmbed } from "discord.js";
 import { Intents } from "discord.js";
 import { Client } from "discordx";
 
@@ -66,12 +66,12 @@ bot.once("ready", async () => {
 });
 
 bot.on("interactionCreate", (interaction: Interaction) => {
-  bot.executeInteraction(interaction);
+    bot.executeInteraction(interaction);
 });
 
-bot.on("messageCreate", (message: Message) => {
+/*bot.on("messageCreate", (message: Message) => {
   bot.executeCommand(message);
-});
+});*/
 
 async function run() {
   // The following syntax should be used in the commonjs environment

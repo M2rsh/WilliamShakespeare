@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-nocheck
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 
@@ -35,7 +37,7 @@ export class Command {
     const embed = new MessageEmbed()
       .setTitle(title || "")
       .setDescription(description || "")
-      .setColor(colour || "#ffc800")
+      .setColor(colour || '#ffc800')
     if(timestamp) {
       embed.setTimestamp();
     }
