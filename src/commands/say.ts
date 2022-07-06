@@ -1,5 +1,6 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
+import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
@@ -9,13 +10,13 @@ export class Command {
     text: string,
     interaction: CommandInteraction
   ): Promise<void> {
-    var text = text.replaceAll("@", "@\u200B")
-    if(text.length>2000) {
-      interaction.reply({ content: "Error: Message is over 2000 characters.", ephemeral: true });
-      throw Error("Message is over 2000 characters.");
-    } else {
+    try {
+      var text = text.replaceAll("@", "@\u200B");
+      text.length > 2000 ? text = text.substring(0, 2000) : text;
       await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: text });
+    } catch (e) {
+      ErrorHandler(e, interaction);
     }
   }
 }

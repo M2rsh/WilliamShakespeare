@@ -1,7 +1,6 @@
-// @ts-ignore
-// @ts-nocheck
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
+import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
@@ -29,11 +28,12 @@ export class Command {
     @SlashChoice({ name: "Purple", value: "#ff00ff"})
     @SlashChoice({ name: "Magenta", value: "#ff00ff"})
     @SlashChoice({ name: "Fuchsia", value: "#ff00ff"})
-    @SlashOption("colour", { description: "Embed Colour", required: false }) colour: string,
+    @SlashOption("colour", { description: "Embed Colour", required: false, type: "STRING" }) colour: any,
 
     @SlashOption("timestamp", { description: "Embed Timestamp", required: false, type: "BOOLEAN" }) timestamp: boolean | false,
     interaction: CommandInteraction,
   ) {
+    try {
     const embed = new MessageEmbed()
       .setTitle(title || "")
       .setDescription(description || "")
@@ -42,5 +42,8 @@ export class Command {
       embed.setTimestamp();
     }
     interaction.reply({ embeds: [embed] });
+    } catch(e){
+      ErrorHandler(e, interaction);
+    }
   }
 }

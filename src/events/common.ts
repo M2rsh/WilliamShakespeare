@@ -1,4 +1,3 @@
-import { MessageEmbed } from "discord.js";
 import type { ArgsOf, Client } from "discordx";
 import { Discord, On } from "discordx";
 import { logger } from "../main.js";
@@ -24,26 +23,7 @@ export class Example {
     client: Client
   ): void {
     process.on("uncaughtException", (e) => {
-      /*interaction.channel
-        ?.send({
-          embeds: [
-            new MessageEmbed()
-              .setTitle(`Hey <@${interaction.user.tag}>! An error occurred`)
-              .setDescription(`\`\`\`${e.message}\`\`\``)
-              .setColor("#ff0000")
-              .setTimestamp(),
-          ],
-        })
-        .then((msg) => {
-          setTimeout(async function () {
-            msg.delete();
-          }, 15000);
-        });*/
-      logger.error(
-        e.message,
-        `User: '${interaction.user?.username}' - '${interaction.user?.id}'`
-      );
-      //process.exit();
+      // nothin
     });
     if (!interaction.isCommand()) return;
     logger.info(
