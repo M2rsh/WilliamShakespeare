@@ -12,7 +12,7 @@ export class Command {
   ): Promise<void> {
     try {
       var text = text.replaceAll("@", "@\u200B");
-      text.length > 2000 ? text = text.substring(0, 2000) : text;
+      text.length > 2000 ? (text = text.substring(0, 2000)) : text;
       await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: text });
     } catch (e) {

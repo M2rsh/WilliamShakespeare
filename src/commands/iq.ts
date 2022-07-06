@@ -5,16 +5,25 @@ import { ErrorHandler } from "../utils/error_handler.js";
 export class Command {
   @Slash("iq", { description: "Calculate IQ" })
   async iq(
-    @SlashOption("user", { description: "User to rate", required: false, type: "USER" }) user: User | undefined,
-    interaction: CommandInteraction,
+    @SlashOption("user", {
+      description: "User to rate",
+      required: false,
+      type: "USER",
+    })
+    user: User | undefined,
+    interaction: CommandInteraction
   ) {
     try {
-    const embed = new MessageEmbed()
-      .setDescription(`${user ? user: interaction.user} IQ is ${Math.floor(Math.random() * 200)}`)
-      .setColor("#ffc800")
-      .setTimestamp();
-    interaction.reply({ embeds: [embed] });
-    } catch(e){
+      const embed = new MessageEmbed()
+        .setDescription(
+          `${user ? user : interaction.user} IQ is ${Math.floor(
+            Math.random() * 200
+          )}`
+        )
+        .setColor("#ffc800")
+        .setTimestamp();
+      interaction.reply({ embeds: [embed] });
+    } catch (e) {
       ErrorHandler(e, interaction);
     }
   }
