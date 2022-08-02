@@ -1,4 +1,4 @@
-import { CommandInteraction, MessageEmbed, User } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, User } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
@@ -9,7 +9,7 @@ export class Command {
     @SlashOption("user", {
       description: "User to rate",
       required: false,
-      type: "USER",
+      type: ApplicationCommandOptionType.User,
     })
     user: User | undefined,
     interaction: CommandInteraction
@@ -21,7 +21,7 @@ export class Command {
         pp = 9999999999999999999999999999999999999999;
       }
 
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setDescription(
           `${_user} PP size is ${pp}cm (${(
             pp / 2.54

@@ -1,4 +1,4 @@
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { CommandInteraction } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 

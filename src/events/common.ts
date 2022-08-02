@@ -14,7 +14,6 @@ export class Example {
   ): Promise<void> {
     await client.guilds.fetch();
     await client.initApplicationCommands();
-    await client.initApplicationPermissions();
     //logger.info(`Guild: '${interaction.name}', ID: '${interaction.id}'`);
   }
   @On("interactionCreate")

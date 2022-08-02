@@ -1,11 +1,11 @@
 import { logger } from "../main.js";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 export function ErrorHandler(e: any, interaction: any) {
   interaction.channel
     ?.send({
       embeds: [
-        new MessageEmbed()
+        new EmbedBuilder()
           .setTitle(`Hey ${interaction.user.tag}! An error occurred`)
           .setDescription(`\`\`\`${e.message}\`\`\``)
           .setColor("#ff0000")

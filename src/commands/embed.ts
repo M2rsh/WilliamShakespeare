@@ -1,4 +1,4 @@
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
@@ -9,13 +9,13 @@ export class Command {
     @SlashOption("title", {
       description: "Embed Title",
       required: false,
-      type: "STRING",
+      type: ApplicationCommandOptionType.String,
     })
     title: string,
     @SlashOption("description", {
       description: "Embed Description",
       required: false,
-      type: "STRING",
+      type: ApplicationCommandOptionType.String,
     })
     description: string,
 
@@ -41,20 +41,20 @@ export class Command {
     @SlashOption("colour", {
       description: "Embed Colour",
       required: false,
-      type: "STRING",
+      type: ApplicationCommandOptionType.String,
     })
     colour: any,
 
     @SlashOption("timestamp", {
       description: "Embed Timestamp",
       required: false,
-      type: "BOOLEAN",
+      type: ApplicationCommandOptionType.Boolean,
     })
     timestamp: boolean | false,
     interaction: CommandInteraction
   ) {
     try {
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setTitle(title || "")
         .setDescription(description || "")
         .setColor(colour || "#ffc800");

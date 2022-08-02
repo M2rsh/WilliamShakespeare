@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { dirname, importx } from "@discordx/importer";
 import { Koa } from "@discordx/koa";
-import { Interaction, Message, MessageEmbed } from "discord.js";
-import { Intents } from "discord.js";
+import { ActivityType, Interaction } from "discord.js";
+import { IntentsBitField } from "discord.js";
 import { Client } from "discordx";
 
 import dotenv from "dotenv";
@@ -33,14 +33,14 @@ export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
   botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
 
-  // Discord intents
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.GuildVoiceStates,
   ],
+  // Discord intents
 
   // Debug logs are disabled in silent mode
   silent: true,
@@ -52,7 +52,6 @@ export const bot = new Client({
 bot.once("ready", async () => {
   await bot.guilds.fetch();
   await bot.initApplicationCommands();
-  await bot.initApplicationPermissions();
 
   /*
   await bot.clearApplicationCommands(
@@ -60,13 +59,13 @@ bot.once("ready", async () => {
   );
   */
 
-  bot.user!.setActivity(`Thy mum's moaning`, { type: "LISTENING" });
+  bot.user!.setActivity(`Thy mum's moaning`, { type: ActivityType.Listening });
 
   logger.log("Info", "Bot Started");
 });
 
 bot.on("interactionCreate", (interaction: Interaction) => {
-    bot.executeInteraction(interaction);
+  bot.executeInteraction(interaction);
 });
 
 /*bot.on("messageCreate", (message: Message) => {
