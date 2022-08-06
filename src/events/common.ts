@@ -3,10 +3,6 @@ import { Discord, On } from "discordx";
 import { logger } from "../main.js";
 @Discord()
 export class Example {
-  /*@On("error")
-  onError([error]: ArgsOf<"error">, client: Client): void {
-    logger.error("Error", client.user?.username, error.message);
-  }*/
   @On("guildCreate")
   async onGuildCreate(
     [interaction]: ArgsOf<"guildCreate">,
@@ -23,6 +19,7 @@ export class Example {
   ): void {
     process.on("uncaughtException", (e) => {
       // nothin
+      // This is just to make sure bot won't completely crash if error occurs
     });
     if (!interaction.isCommand()) return;
     logger.info(
