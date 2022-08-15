@@ -50,14 +50,14 @@ export const bot = new Client({
 });
 
 bot.once("ready", async () => {
+
+  /*await bot.clearApplicationCommands(
+    ...bot.guilds.cache.map((g) => g.id)
+  );*/
+
   await bot.guilds.fetch();
   await bot.initApplicationCommands();
-
-  /*
-  await bot.clearApplicationCommands(
-    ...bot.guilds.cache.map((g) => g.id)
-  );
-  */
+  
 
   bot.user!.setActivity(`Thy mum's moaning`, { type: ActivityType.Listening });
 

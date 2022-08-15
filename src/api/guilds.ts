@@ -7,7 +7,14 @@ export class API {
   @Get()
   guilds(ctx: Context): void {
     ctx.type = "application/json";
-    ctx.body = JSON.stringify(JSON.parse('{'+`${bot.guilds.cache.map((g) => `"${g.name}": {"id": ${g.id}, "owner": ${g.ownerId}, "description": "${g.description}"}`)}`+'}'), null, 3);
+    ctx.body = JSON.parse(
+      "{" +
+        `${bot.guilds.cache.map(
+          (g) =>
+            `"${g.name}": {"id": ${g.id}, "owner": ${g.ownerId}, "description": "${g.description}"}`
+        )}` +
+        "}"
+    );
   }
   @Get()
   info(ctx: Context): void {
