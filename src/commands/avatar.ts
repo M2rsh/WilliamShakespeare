@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash("avatar", { description: "Get someones avatar" })
+  @Slash("avatar", { description: "Get someones avatar", dmPermission: true })
   async test(
     @SlashOption("user", {
         description: "User to get avatar of",

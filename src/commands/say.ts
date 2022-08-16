@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash("say", { description: "Say something" })
+  @Slash("say", { description: "Say something", dmPermission: true })
   async say(
     @SlashOption("text", { description: "What do you want me to say?" })
     text: string,

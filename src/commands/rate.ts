@@ -3,7 +3,7 @@ import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
-  @Slash("rate", { description: "Rate something" })
+  @Slash("rate", { description: "Rate something", dmPermission: true })
   async rate(
     @SlashOption("thing", { description: "Thing to rate" }) thing: string,
     @SlashOption("user", {

@@ -3,7 +3,7 @@ import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
-  @Slash("iq", { description: "Calculate IQ" })
+  @Slash("iq", { description: "Calculate IQ", dmPermission: true })
   async iq(
     @SlashOption("user", {
       description: "User to rate",
