@@ -2,7 +2,7 @@ import type { ArgsOf, Client } from "discordx";
 import { Discord, On } from "discordx";
 import { logger } from "../main.js";
 @Discord()
-export class Example {
+export class commonEvents {
   @On("guildCreate")
   async onGuildCreate(
     [interaction]: ArgsOf<"guildCreate">,
