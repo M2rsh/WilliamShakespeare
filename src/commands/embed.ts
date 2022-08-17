@@ -4,15 +4,17 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash("embed", { description: "Creates Embed", dmPermission: true })
+  @Slash({name: "embed", description: "Creates Embed", dmPermission: true })
   async iq(
-    @SlashOption("title", {
+    @SlashOption({
+      name: "title",
       description: "Embed Title",
       required: false,
       type: ApplicationCommandOptionType.String,
     })
     title: string,
-    @SlashOption("description", {
+    @SlashOption({
+      name: "description",
       description: "Embed Description",
       required: false,
       type: ApplicationCommandOptionType.String,
@@ -38,14 +40,16 @@ export class Command {
     @SlashChoice({ name: "Purple", value: "#ff00ff" })
     @SlashChoice({ name: "Magenta", value: "#ff00ff" })
     @SlashChoice({ name: "Fuchsia", value: "#ff00ff" })
-    @SlashOption("colour", {
+    @SlashOption({
+      name: "colour", 
       description: "Embed Colour",
       required: false,
       type: ApplicationCommandOptionType.String,
     })
     colour: any,
 
-    @SlashOption("timestamp", {
+    @SlashOption({
+      name: "timestamp", 
       description: "Embed Timestamp",
       required: false,
       type: ApplicationCommandOptionType.Boolean,

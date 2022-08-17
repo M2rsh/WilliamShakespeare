@@ -3,7 +3,7 @@ import { Discord, On } from "discordx";
 import { logger } from "../main.js";
 @Discord()
 export class commonEvents {
-  @On("guildCreate")
+  @On({event:"guildCreate"})
   async onGuildCreate(
     [interaction]: ArgsOf<"guildCreate">,
     client: Client
@@ -12,7 +12,7 @@ export class commonEvents {
     await client.initApplicationCommands();
     //logger.info(`Guild: '${interaction.name}', ID: '${interaction.id}'`);
   }
-  @On("interactionCreate")
+  @On({event:"interactionCreate"})
   onInteraction(
     [interaction]: ArgsOf<"interactionCreate">,
     client: Client

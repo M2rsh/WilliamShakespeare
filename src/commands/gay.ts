@@ -5,9 +5,10 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash("gay", { description: "Make someone gay", dmPermission: true })
+  @Slash({name: "gay", description: "Make someone gay", dmPermission: true })
   async test(
-    @SlashOption("user", {
+    @SlashOption({
+      name: "user",
       description: "User to get avatar of",
       required: false,
       type: ApplicationCommandOptionType.User,
