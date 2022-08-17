@@ -1,11 +1,11 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { ApplicationCommandOptionType, AttachmentBuilder, Colors, CommandInteraction, EmbedBuilder, User } from "discord.js";
+import { ApplicationCommandOptionType, AttachmentBuilder, Colors, CommandInteraction, EmbedBuilder, PermissionsBitField, User } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "gay", description: "Make someone gay", dmPermission: true })
+  @Slash({name: "gay", description: "Make someone gay", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
   async test(
     @SlashOption({
       name: "user",

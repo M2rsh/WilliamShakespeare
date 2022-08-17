@@ -1,10 +1,10 @@
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, PermissionsBitField } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "say", description: "Say something", dmPermission: true })
+  @Slash({name: "say", description: "Say something", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
   async say(
     @SlashOption({name: "text", description: "What do you want me to say?" })
     text: string,

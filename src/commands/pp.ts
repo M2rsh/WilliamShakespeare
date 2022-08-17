@@ -1,10 +1,10 @@
-import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, User } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, PermissionsBitField, User } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "pp", description: "Measure PP", dmPermission: true })
+  @Slash({name: "pp", description: "Measure PP", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
   async pp(
     @SlashOption({
       name: "user",

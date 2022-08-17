@@ -1,10 +1,10 @@
-import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "embed", description: "Creates Embed", dmPermission: true })
+  @Slash({name: "embed", description: "Creates Embed", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
   async iq(
     @SlashOption({
       name: "title",
