@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
   @Slash({name: "iq", description: "Calculate IQ", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
-  async iq(
+  async command(
     @SlashOption({
       name: "user",
       description: "User to rate",

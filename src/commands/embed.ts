@@ -5,7 +5,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
   @Slash({name: "embed", description: "Creates Embed", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
-  async iq(
+  async command(
     @SlashOption({
       name: "title",
       description: "Embed Title",

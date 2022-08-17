@@ -5,7 +5,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
   @Slash({name: "pp", description: "Measure PP", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
-  async pp(
+  async command(
     @SlashOption({
       name: "user",
       description: "User to rate",
