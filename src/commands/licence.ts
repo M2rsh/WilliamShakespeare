@@ -35,7 +35,7 @@ export class Command {
       ctx.fillText(_user.tag, 640, 350);
       ctx.fillText(_user.id, 640, 420);
       ctx.fillText(`Issued on ${Moment().format('ll')}`, 640, 490);
-      ctx.fillText(`Expiry on ${Moment().add(5, 'years').format('ll')}`, 640, 550);
+      ctx.fillText(`Expiring on ${Moment().add(5, 'years').format('ll')}`, 640, 550);
 
 
       const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'processed.png' });
