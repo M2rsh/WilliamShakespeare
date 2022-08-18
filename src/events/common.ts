@@ -20,10 +20,11 @@ export class commonEvents {
     process.on("uncaughtException", (e) => {
       // nothin
       // This is just to make sure bot won't completely crash if error occurs
+      // memory leak moment
     });
     if (!interaction.isCommand()) return;
     logger.info(
-      `User: '${interaction.user?.username}', Command: '${interaction.commandName}'`
+      `User: '${interaction.user?.username}', Command: '${interaction.commandName}'.`
     );
   }
 }
