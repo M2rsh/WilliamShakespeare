@@ -61,7 +61,7 @@ bot.once("ready", async () => {
 
   bot.user!.setActivity(`Thy mum's moaning`, { type: ActivityType.Listening });
 
-  logger.log("Info", "Bot Started");
+  logger.log("Info", `Bot Started. Version: ${process.env.WS_VERSION}`);
 });
 
 bot.on("interactionCreate", (interaction: Interaction) => {

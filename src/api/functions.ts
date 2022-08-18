@@ -2,7 +2,7 @@ import { Get, Middleware, Router } from "@discordx/koa";
 import type { Context, Next } from "koa";
 import fs from "fs";
 import { bot } from "../main.js";
-import { log, Authenticated } from "./utils.js";
+import { log, Authenticated } from "../utils/api.js";
 
 @Middleware(log)
 @Router()

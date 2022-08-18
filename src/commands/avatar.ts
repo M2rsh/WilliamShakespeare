@@ -20,7 +20,7 @@ export class Command {
       
       const embed = new EmbedBuilder()
         .setDescription(`${_user}'s avatar`)
-        .setColor("#ffc800")
+        .setColor("#c4a7e7")
         .setImage(`${_user.displayAvatarURL({size: 1024})}`)
         .setTimestamp();
       interaction.reply({embeds: [embed]});

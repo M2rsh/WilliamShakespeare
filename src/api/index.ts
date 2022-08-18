@@ -1,6 +1,6 @@
 import { Get, Middleware, Router } from "@discordx/koa";
 import type { Context } from "koa";
-import { log } from "./utils.js";
+import { log } from "../utils/api.js";
 
 @Middleware(log)
 @Router()
@@ -36,7 +36,14 @@ export class API {
           color: #ebbcba;
           text-decoration: underline;
         }
-  
+
+        .separator {
+          background-color: #f6c177;
+          border-radius: 15px;
+          color: #191724;
+          padding: 10px;
+          display: inline-block;
+        }
       </style>
     </head>
     <body>
@@ -48,6 +55,7 @@ export class API {
         <h1>
           William Shakespeare Bot API
           <p style="font-size: 0.4em">
+            Version ${process.env.WS_VERSION} <br/>
             Powered by <a href="https://koajs.com/">koa</a> and
             <a href="https://www.npmjs.com/package/@discordx/koa"
               >@discordx/koa</a
@@ -56,8 +64,10 @@ export class API {
         </h1>
   
         <h2>Routes:</h2>
-        <p><a href="logs">Logs</a> <br/><br/> - Requires authentication</p>
+        <div class="separator">Public</div>
         <p><a href="guilds">Guilds</a></p>
+        <div class="separator">Requires authentication</div>
+        <p><a href="logs">Logs</a></p>
       </div>
     </body>
   </html>  

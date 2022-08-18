@@ -2,13 +2,12 @@ import { logger } from "../main.js";
 import { EmbedBuilder } from "discord.js";
 
 export function ErrorHandler(e: any, interaction: any) {
-  interaction.channel
-    ?.send({
+  interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setTitle(`Hey ${interaction.user.tag}! An error occurred`)
-          .setDescription(`\`\`\`${e.message}\`\`\``)
-          .setColor("#ff0000")
+          .setTitle(`An error occurred!`)
+          .setDescription(`\`${e.message || e}\``)
+          .setColor("#eb6f92")
           .setTimestamp(),
       ],
     })
@@ -18,7 +17,7 @@ export function ErrorHandler(e: any, interaction: any) {
       }, 15000);
     });
   logger.error(
-    e.message,
+    e.stack,
     `User: '${interaction.user?.username}' - '${interaction.user?.id}'`
   );
   return;

@@ -21,7 +21,7 @@ export class Command {
             Math.random() * 200
           )}`
         )
-        .setColor("#ffc800")
+        .setColor("#c4a7e7")
         .setTimestamp();
       interaction.reply({ embeds: [embed] });
     } catch (e) {
