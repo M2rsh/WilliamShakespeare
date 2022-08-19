@@ -26,7 +26,7 @@ export class Command {
         .setTimestamp();
       interaction.reply({ embeds: [embed] });
     } catch (e) {
-      ErrorHandler(e, interaction);
+      await ErrorHandler(e, interaction);
     }
   }
 }

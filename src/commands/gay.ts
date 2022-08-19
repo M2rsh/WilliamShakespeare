@@ -48,7 +48,7 @@ export class Command {
 
       interaction.reply({ embeds: [embed], files: [attachment] });
     } catch (e) {
-      ErrorHandler(e, interaction);
+      await ErrorHandler(e, interaction);
     }
   }
 }

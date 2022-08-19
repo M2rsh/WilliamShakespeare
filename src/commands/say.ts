@@ -16,7 +16,7 @@ export class Command {
       await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: text });
     } catch (e) {
-      ErrorHandler(e, interaction);
+      await ErrorHandler(e, interaction);
     }
   }
 }

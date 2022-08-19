@@ -1,8 +1,9 @@
 import { logger } from "../main.js";
 import { EmbedBuilder } from "discord.js";
+import { replyOrFollowUp } from "./utils.js";
 
-export function ErrorHandler(e: any, interaction: any) {
-  interaction.reply({
+export async function ErrorHandler(e: any, interaction: any) {
+  await replyOrFollowUp(interaction, {
       embeds: [
         new EmbedBuilder()
           .setTitle(`An error occurred!`)

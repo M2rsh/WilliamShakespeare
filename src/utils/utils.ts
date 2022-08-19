@@ -1,3 +1,4 @@
+import { CommandInteraction, InteractionReplyOptions, MessageComponentInteraction } from "discord.js";
 
 const units : any = {
     year: 24 * 60 * 60 * 1000 * 365,
@@ -19,3 +20,20 @@ export const getRelativeTime = (_elapsed : any) => {
         }
     }
 };
+
+export async function replyOrFollowUp(interaction: CommandInteraction | MessageComponentInteraction, replyOptions: (InteractionReplyOptions & { ephemeral?: boolean }) | string): Promise<void> {
+    // if interaction is already replied
+    if (interaction.replied) {
+        await interaction.followUp(replyOptions);
+        return;
+    }
+
+    // if interaction is deferred but not replied
+    if (interaction.deferred) {
+        await interaction.editReply(replyOptions);
+        return;
+    }
+
+    // if interaction is not handled yet
+    await interaction.reply(replyOptions);
+}

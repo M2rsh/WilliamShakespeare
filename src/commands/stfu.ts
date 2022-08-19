@@ -12,7 +12,7 @@ export class Command {
       await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: "Shut the fuck up <@560205926758612994>" });
     } catch (e) {
-      ErrorHandler(e, interaction);
+      await ErrorHandler(e, interaction);
     }
   }
 }
