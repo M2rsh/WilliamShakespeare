@@ -40,7 +40,7 @@ export class Command {
 
       const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'processed.png' });
       const embed = new EmbedBuilder()
-        .setDescription(`${_user}s Meme stealing licence`)
+        .setDescription(`${_user}'s Meme stealing licence`)
         .setColor("#c4a7e7")
         .setImage("attachment://processed.png")
         .setTimestamp();
