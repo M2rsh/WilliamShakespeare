@@ -1,10 +1,20 @@
-import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
+import {
+  ApplicationCommandOptionType,
+  CommandInteraction,
+  EmbedBuilder,
+  PermissionsBitField,
+} from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "embed", description: "Creates Embed", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
+  @Slash({
+    name: "embed",
+    description: "Creates Embed",
+    dmPermission: true,
+    defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands,
+  })
   async command(
     @SlashOption({
       name: "title",
@@ -12,14 +22,14 @@ export class Command {
       required: false,
       type: ApplicationCommandOptionType.String,
     })
-    title: string,
+    title: string | undefined,
     @SlashOption({
       name: "description",
       description: "Embed Description",
       required: false,
       type: ApplicationCommandOptionType.String,
     })
-    description: string,
+    description: string | undefined,
 
     @SlashChoice({ name: "White", value: "#ffffff" })
     @SlashChoice({ name: "Black", value: "#000000" })
@@ -41,7 +51,7 @@ export class Command {
     @SlashChoice({ name: "Magenta", value: "#ff00ff" })
     @SlashChoice({ name: "Fuchsia", value: "#ff00ff" })
     @SlashOption({
-      name: "colour", 
+      name: "colour",
       description: "Embed Colour",
       required: false,
       type: ApplicationCommandOptionType.String,
@@ -49,7 +59,7 @@ export class Command {
     colour: any,
 
     @SlashOption({
-      name: "timestamp", 
+      name: "timestamp",
       description: "Embed Timestamp",
       required: false,
       type: ApplicationCommandOptionType.Boolean,
@@ -58,14 +68,14 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
-      if(title && description === undefined) {
+      if (title === undefined && description === undefined) {
         title = "Someone forgot to add a title and a description";
         description = "May this user drown in laughter";
       }
       const embed = new EmbedBuilder()
-        .setTitle(title || "")
-        .setDescription(description || "")
         .setColor(colour || "#c4a7e7");
+      title ? embed.setTitle(title) : void 0;
+      description ? embed.setDescription(description) : void 0;
       if (timestamp) {
         embed.setTimestamp();
       }

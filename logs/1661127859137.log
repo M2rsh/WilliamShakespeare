@@ -1,0 +1,37 @@
+[2022-08-22T02:24:21.009] [INFO] default - API Server Started. Visit http://localhost:5000/
+[2022-08-22T02:24:27.055] [INFO] default - Bot Started. Version: 1.1.0
+[2022-08-22T02:24:28.185] [INFO] default - User: 'Crystals', Command: 'embed'.
+[2022-08-22T02:24:41.243] [INFO] default - User: 'Lizzy Bo Bizzy Mc Skizzy', Command: 'embed'.
+[2022-08-22T02:24:41.598] [ERROR] default - CombinedError (2)
+  Received one or more errors
+
+  1 ExpectedValidationError > s.literal(V)
+  |   Expected values to be equals
+  | 
+  |   Expected:
+  |   | null
+  | 
+  |   Received:
+  |   | ''
+
+  2 ExpectedConstraintError > s.string.lengthGreaterThanOrEqual
+  |   Invalid string length
+  | 
+  |   Expected: expected.length >= 1
+  | 
+  |   Received:
+  |   | ''
+
+    at UnionValidator.handle (/home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/@sapphire/shapeshift/src/validators/UnionValidator.ts:111:21)
+    at UnionValidator.parse (/home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/@sapphire/shapeshift/src/validators/BaseValidator.ts:80:86)
+    at EmbedBuilder.setDescription (/home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/@discordjs/builders/src/messages/embed/Embed.ts:63:26)
+    at Command.command (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/src/commands/embed.ts:77:10)
+    at next (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/discordx/src/decorators/classes/Method.ts:85:38)
+    at file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/discordx/src/decorators/classes/Method.ts:108:31
+    at DApplicationCommand.<anonymous> (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/discordx/src/decorators/classes/Method.ts:40:49)
+    at Client.executeCommandInteraction (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/discordx/src/Client.ts:1064:31)
+    at Client.executeInteraction (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/node_modules/discordx/src/Client.ts:1016:19)
+    at Client.<anonymous> (file:///home/m2rsh/Documents/GitHub/WilliamShakespeare/src/main.ts:68:7) User: 'Lizzy Bo Bizzy Mc Skizzy' - '846298981797724161'
+[2022-08-22T02:26:10.285] [INFO] default - User: 'Crystals', Command: 'embed'.
+[2022-08-22T02:26:19.203] [INFO] default - User: 'Kxffie', Command: 'embed'.
+[2022-08-22T02:26:24.775] [INFO] default - User: 'Kxffie', Command: 'embed'.

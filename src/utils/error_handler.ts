@@ -18,7 +18,7 @@ export async function ErrorHandler(e: any, interaction: any) {
       }, 15000);
     });
   logger.error(
-    e.stack,
+    e,
     `User: '${interaction.user?.username}' - '${interaction.user?.id}'`
   );
   return;
