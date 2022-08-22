@@ -1,7 +1,6 @@
 import { CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Discord, Slash } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
-import { getRelativeTime } from "../utils/utils.js";
 
 @Discord()
 export class Command {
@@ -20,10 +19,11 @@ export class Command {
                     { name: 'Created At', value: `${interaction.guild?.createdAt}`, inline: true },
                     { name: 'Preferred Locale', value: `${interaction.guild?.preferredLocale}`, inline: true },
                     { name: 'Members', value: `${interaction.guild?.memberCount}`, inline: true },
-                    { name: 'Banned Members', value: `${(await interaction.guild?.bans.fetch())?.size}`, inline: true },
                     { name: 'Channels', value: `${(await interaction.guild?.channels.fetch())?.size}`, inline: true },
                 )
-
+            if (interaction.guild?.members.me?.permissions.has(PermissionsBitField.Flags.Administrator || PermissionsBitField.Flags.ManageGuild)) {
+                embed.addFields({ name: 'Banned Members', value: `${(await interaction.guild?.bans.fetch())?.size}`, inline: true },)
+            }
             if (interaction.guild?.iconURL() != null) {
                 embed.setThumbnail(interaction.guild?.iconURL())
             }
