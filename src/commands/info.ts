@@ -16,6 +16,7 @@ export class Command {
                 .addFields(
                     { name: "Version", value: `${process.env.WS_VERSION}` },
                     { name: "Owner", value: `<@846298981797724161>` },
+                    { name: "Library", value: `[Discordx](https://www.npmjs.com/package/discordx)` },
                     { name: 'Guilds', value: `${interaction.client.guilds.cache.size}`, inline: true },
                     { name: 'Users', value: `${interaction.client.users.cache.size}`, inline: true },
                     { name: 'Channels', value: `${interaction.client.channels.cache.size}`, inline: true },
