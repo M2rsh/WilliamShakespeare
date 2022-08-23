@@ -29,11 +29,11 @@ export class Command {
     try {
       if(!(await hasPermission(interaction, PermissionsBitField.Flags.BanMembers))) { return ErrorHandler('I don\'t have permission to do that.', interaction) }
       const user: GuildMember | undefined = await interaction.guild?.members.fetch(_user.id)
-      if (!user) { throw Error("Member cannot be found") }
+      if (!user) { throw Error("Member cannot be found.") }
       const author: GuildMember | undefined = await interaction.guild?.members.fetch(interaction.user.id)
-      if (!author) { throw Error("Something went wrong") }
-      if ((interaction.guild?.members.me?.roles.highest.position || 0) <= user.roles.highest.position) { return ErrorHandler('I cannot ban this user', interaction) }
-      if (user.roles.highest.position > author.roles.highest.position) { return ErrorHandler('You cannot ban user that is higher or the same hierarchy level as you', interaction) }
+      if (!author) { throw Error("Something went wrong.") }
+      if ((interaction.guild?.members.me?.roles.highest.position || 0) <= user.roles.highest.position) { return ErrorHandler('I cannot ban this user.', interaction) }
+      if (user.roles.highest.position > author.roles.highest.position) { return ErrorHandler('You cannot ban user that is higher or the same hierarchy level as you.', interaction) }
       var embed = new EmbedBuilder()
         .setDescription(`<:bonk:1011574424845156373> You've been banned from \`${interaction.guild}\``)
         .setFields({ name: "Reason", value: `${reason}`, inline: true }, { name: "Banned by", value: `${author}`, inline: true })
