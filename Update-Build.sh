@@ -1,4 +1,5 @@
 sudo rm -rf build/
 git pull
 npm install
-cp .evn build/
+npm run build
+cp .env build/
