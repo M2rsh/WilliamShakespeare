@@ -21,7 +21,7 @@ export class Command {
                     { name: 'Members', value: `${interaction.guild?.memberCount}`, inline: true },
                     { name: 'Channels', value: `${(await interaction.guild?.channels.fetch())?.size}`, inline: true },
                 )
-            if (interaction.guild?.members.me?.permissions.has(PermissionsBitField.Flags.Administrator || PermissionsBitField.Flags.ManageGuild)) {
+            if (interaction.guild?.members.me?.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 embed.addFields({ name: 'Banned Members', value: `${(await interaction.guild?.bans.fetch())?.size}`, inline: true },)
             }
             if (interaction.guild?.iconURL() != null) {
