@@ -1,7 +1,7 @@
 <div>
   <p align="center">
     <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/220px-Shakespeare.jpg"
+        src="https://images-ext-2.discordapp.net/external/1UWKj8inpuyCLp5Xg9_homJxLDLVLRdka4Eqd4MnK8Y/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/969292707019247717/71e3f6be7d431b0aa247d22f9b00e665.webp?width=650&height=650"
         alt="William Shakespeare"
     />
   </p>
