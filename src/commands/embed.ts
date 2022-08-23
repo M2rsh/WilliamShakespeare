@@ -1,8 +1,7 @@
 import {
   ApplicationCommandOptionType,
   CommandInteraction,
-  EmbedBuilder,
-  PermissionsBitField,
+  EmbedBuilder
 } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
@@ -12,8 +11,7 @@ export class Command {
   @Slash({
     name: "embed",
     description: "Creates Embed",
-    dmPermission: true,
-    defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands,
+    dmPermission: true
   })
   async command(
     @SlashOption({
@@ -69,7 +67,7 @@ export class Command {
   ) {
     try {
       if (title === undefined && description === undefined) {
-        title = "Someone forgot to add a title and a description";
+        title = "Someone forgot to add a title or a description";
         description = "May this user drown in laughter";
       }
       const embed = new EmbedBuilder()

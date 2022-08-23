@@ -31,7 +31,7 @@ logger.addContext("date", Date.now());
 
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
-  botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
+  // botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
 
   intents: [
     IntentsBitField.Flags.Guilds,
@@ -51,9 +51,9 @@ export const bot = new Client({
 
 bot.once("ready", async () => {
 
-  /*await bot.clearApplicationCommands(
+  await bot.clearApplicationCommands(
     ...bot.guilds.cache.map((g) => g.id)
-  );*/
+  );
 
   await bot.guilds.fetch();
   await bot.initApplicationCommands();

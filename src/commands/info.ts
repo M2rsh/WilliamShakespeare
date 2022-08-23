@@ -1,11 +1,11 @@
-import { CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
+import { CommandInteraction, EmbedBuilder } from "discord.js";
 import { Discord, Slash } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import { getRelativeTime } from "../utils/utils.js";
 
 @Discord()
 export class Command {
-    @Slash({ name: "info", description: "Bot info", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
+    @Slash({ name: "info", description: "Bot info", dmPermission: true })
     async command(
         interaction: CommandInteraction
     ): Promise<void> {

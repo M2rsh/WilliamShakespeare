@@ -1,12 +1,12 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { ApplicationCommandOptionType, AttachmentBuilder, CommandInteraction, EmbedBuilder, PermissionsBitField, User } from "discord.js";
+import { ApplicationCommandOptionType, AttachmentBuilder, CommandInteraction, EmbedBuilder, User } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import Moment from "moment";
 import { bot } from "../main.js";
 @Discord()
 export class Command {
-  @Slash({name: "licence", description: "Create a licence", dmPermission: true, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
+  @Slash({name: "licence", description: "Create a licence", dmPermission: true })
   async command(
     @SlashOption({
       name: "user",

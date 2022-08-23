@@ -1,10 +1,10 @@
-import { CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
+import { CommandInteraction, EmbedBuilder } from "discord.js";
 import { Discord, Slash } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-    @Slash({ name: "serverinfo", description: "Current server info", dmPermission: false, defaultMemberPermissions: PermissionsBitField.Flags.UseApplicationCommands })
+    @Slash({ name: "serverinfo", description: "Current server info", dmPermission: false })
     async command(
         interaction: CommandInteraction
     ): Promise<void> {
@@ -21,9 +21,10 @@ export class Command {
                     { name: 'Members', value: `${interaction.guild?.memberCount}`, inline: true },
                     { name: 'Channels', value: `${(await interaction.guild?.channels.fetch())?.size}`, inline: true },
                 )
-            if (interaction.guild?.members.me?.permissions.has(PermissionsBitField.Flags.Administrator)) {
+            // It's unclean i don't like it
+            /*if (interaction.guild?.members.me?.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 embed.addFields({ name: 'Banned Members', value: `${(await interaction.guild?.bans.fetch())?.size}`, inline: true },)
-            }
+            }*/
             if (interaction.guild?.iconURL() != null) {
                 embed.setThumbnail(interaction.guild?.iconURL())
             }

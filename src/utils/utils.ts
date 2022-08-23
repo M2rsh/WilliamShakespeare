@@ -1,4 +1,4 @@
-import { CommandInteraction, InteractionReplyOptions, MessageComponentInteraction } from "discord.js";
+import { CommandInteraction, InteractionReplyOptions, MessageComponentInteraction, PermissionResolvable } from "discord.js";
 
 const units : any = {
     year: 24 * 60 * 60 * 1000 * 365,
@@ -36,4 +36,8 @@ export async function replyOrFollowUp(interaction: CommandInteraction | MessageC
 
     // if interaction is not handled yet
     await interaction.reply(replyOptions);
+}
+
+export async function hasPermission(interaction: CommandInteraction, permission: PermissionResolvable) {
+    return interaction.guild?.members.me?.permissions.has(permission)
 }
