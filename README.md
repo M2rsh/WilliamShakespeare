@@ -17,9 +17,6 @@
         alt="Build status"
     /></a>
   </p>
-  <p align="center">
-    <b> Discord bot in Typescript </b>
-  </p>
 </div>
 
 # 📜 Documentation
