@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType, CommandInteraction, PermissionsBitField, User } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, PermissionsBitField } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
@@ -18,7 +18,6 @@ export class Command {
     interaction: CommandInteraction
   ): Promise<void> {
     try {
-
       await interaction.deferReply({ ephemeral: true });
       interaction.channel?.send({ content: `Shut the fuck up ${user ? user : "<@560205926758612994>"}` });
     } catch (e) {

@@ -1,5 +1,5 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { ApplicationCommandOptionType, AttachmentBuilder, Colors, CommandInteraction, EmbedBuilder, PermissionsBitField, User } from "discord.js";
+import { ApplicationCommandOptionType, AttachmentBuilder, CommandInteraction, EmbedBuilder, PermissionsBitField, User } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import Moment from "moment";
