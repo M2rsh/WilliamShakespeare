@@ -8,6 +8,7 @@ export class Command {
   async command(
     @SlashChoice({ name: "Boyetrash", value: "<@560205926758612994>" })
     @SlashChoice({ name: "Coderunner", value: "<@934178009664069632>" })
+    @SlashChoice({ name: "Funtimes909", value: "<@652755888230236160>" })
     @SlashOption({
       name: "user",
       description: "Common users who should shut the fuck up",

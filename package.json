@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/koa": "^2.13.5",
     "@types/koa__router": "^8.0.11",
-    "@types/node": "^18.7.10",
+    "@types/node": "^18.7.13",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",

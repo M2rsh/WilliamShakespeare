@@ -1,6 +1,7 @@
 import type { ArgsOf, Client } from "discordx";
 import { Discord, On } from "discordx";
 import { logger } from "../main.js";
+import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class commonEvents {
   @On({event:"guildCreate"})
@@ -24,7 +25,7 @@ export class commonEvents {
     });
     if (!interaction.isCommand()) return;
     logger.info(
-      `User: '${interaction.user?.username}', Command: '${interaction.commandName}'.`
+      `User: '${interaction.user?.tag}', Command: '${interaction.commandName}', Options '${interaction.options.data.map((o) => ` ${o.name}: "${o.value}"`)} '.`
     );
   }
 }

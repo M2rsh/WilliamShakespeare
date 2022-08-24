@@ -30,7 +30,6 @@ export class API {
         files.push(+file.replace(".log", ""));
       }
     });
-
     ctx.body = fs.readFileSync(`logs/${Math.max(...files)}.log`, "utf8");
     return next()
   }
