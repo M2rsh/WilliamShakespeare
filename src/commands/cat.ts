@@ -2,7 +2,7 @@ import { CommandInteraction, EmbedBuilder } from "discord.js";
 import { Discord, Slash } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import { faker } from '@faker-js/faker';
-
+import fetch from "node-fetch"
 @Discord()
 export class Command {
     @Slash({ name: "cat", description: "Random cat image", dmPermission: true })
