@@ -73,7 +73,7 @@ export class Command {
       const embed = new EmbedBuilder()
         .setColor(colour || "#c4a7e7");
       title ? embed.setTitle(title) : void 0;
-      description ? embed.setDescription(description.replace("\\n", "\n")) : void 0;
+      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : void 0;
       if (timestamp) {
         embed.setTimestamp();
       }
