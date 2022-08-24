@@ -6,7 +6,7 @@ import Moment from "moment";
 import { bot } from "../main.js";
 @Discord()
 export class Command {
-  @Slash({name: "licence", description: "Create a licence", dmPermission: true })
+  @Slash({name: "licence", description: "Create a meme stealing licence", dmPermission: true })
   async command(
     @SlashOption({
       name: "user",

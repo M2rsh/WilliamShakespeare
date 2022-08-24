@@ -10,7 +10,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 export class Command {
   @Slash({
     name: "embed",
-    description: "Creates Embed",
+    description: "Create an Embed",
     dmPermission: true
   })
   async command(

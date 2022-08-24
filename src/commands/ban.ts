@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 import { hasPermission } from "../utils/utils.js";
 @Discord()
 export class Command {
-  @Slash({ name: "ban", description: "Bans user", dmPermission: false, defaultMemberPermissions: PermissionsBitField.Flags.BanMembers })
+  @Slash({ name: "ban", description: "Ban user", dmPermission: false, defaultMemberPermissions: PermissionsBitField.Flags.BanMembers })
   async command(
     @SlashOption({ name: "user", description: "User", type: ApplicationCommandOptionType.User, })
     _user: User,
@@ -38,6 +38,7 @@ export class Command {
         .setDescription(`<:bonk:1011574424845156373> You've been banned from \`${interaction.guild}\``)
         .setFields({ name: "Reason", value: `${reason}`, inline: true }, { name: "Banned by", value: `${author}`, inline: true })
         .setColor("#c4a7e7")
+        .setTimestamp()
       user.send({ embeds: [embed] })
       
       user.ban({reason: `${reason} | Banned by ${author?.id}` })
@@ -46,6 +47,7 @@ export class Command {
         .setDescription(`<:bonk:1011574424845156373> Banned ${user}`)
         .setFields({ name: "Reason", value: `${reason}`, inline: true }, { name: "Banned by", value: `${author}`, inline: true })
         .setColor("#c4a7e7")
+        .setTimestamp()
       interaction.reply({ embeds: [embed] })
     } catch (e) {
       await ErrorHandler(e, interaction);

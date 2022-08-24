@@ -23,6 +23,7 @@ export class Command {
                     { name: 'Channels', value: `${interaction.client.channels.cache.size}`, inline: true },
                     { name: 'Started', value: `${getRelativeTime(Number(interaction.client.uptime))}`, inline: true },
                 )
+                .setTimestamp()
             if (interaction.client.user?.displayAvatarURL() != null) {
                 embed.setThumbnail(interaction.client.user.displayAvatarURL({ size: 1024 }))
             }

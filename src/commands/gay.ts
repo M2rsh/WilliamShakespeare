@@ -5,7 +5,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "gay", description: "Make someone gay", dmPermission: true })
+  @Slash({name: "gay", description: "Gay flag overlay", dmPermission: true })
   async command(
     @SlashOption({
       name: "user",

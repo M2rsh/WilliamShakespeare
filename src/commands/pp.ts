@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "pp", description: "Measure PP", dmPermission: true })
+  @Slash({name: "pp", description: "Measure someone's PP", dmPermission: true })
   async command(
     @SlashOption({
       name: "user",
