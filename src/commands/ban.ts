@@ -1,10 +1,16 @@
+import { PermissionGuard } from "@discordx/utilities";
 import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder, GuildMember, PermissionsBitField, User } from "discord.js";
-import { Discord, Slash, SlashOption } from "discordx";
+import { Discord, Guard, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import { hasPermission } from "../utils/utils.js";
 @Discord()
 export class Command {
   @Slash({ name: "ban", description: "Ban user", dmPermission: false, defaultMemberPermissions: PermissionsBitField.Flags.BanMembers })
+  @Guard(
+    PermissionGuard(["BanMembers"], {
+      content: "You do not have the permission `BAN_MEMBERS`",
+    })
+  )
   async command(
     @SlashOption({ name: "user", description: "User", type: ApplicationCommandOptionType.User, })
     _user: User,
