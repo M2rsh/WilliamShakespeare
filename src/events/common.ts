@@ -4,7 +4,7 @@ import { logger } from "../main.js";
 import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class commonEvents {
-  @On({event:"guildCreate"})
+  @On({event:"guildCreate"}) // I have no idea if this is still necesary but im too lazy to check so it will just be here in case lol
   async onGuildCreate(
     [interaction]: ArgsOf<"guildCreate">,
     client: Client
@@ -24,6 +24,7 @@ export class commonEvents {
       // memory leak moment
     });
     if (!interaction.isCommand()) return;
+    if(interaction.user.id==="928754943064678481") { interaction.channel?.send("<@928754943064678481> is gay") }
     logger.info(
       `User: '${interaction.user?.tag}', Command: '${interaction.commandName}', Options '${interaction.options.data.map((o) => ` ${o.name}: "${o.value}"`)} '.`
     );
