@@ -2,6 +2,7 @@
 .vscode
 .env
 .env.local
+*.env # I'm an idiot
 package-lock.json
 yarn.lock
 CHANGELOG.md
