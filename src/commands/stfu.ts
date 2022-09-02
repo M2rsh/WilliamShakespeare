@@ -9,6 +9,7 @@ export class Command {
     @SlashChoice({ name: "Boyetrash", value: "<@560205926758612994>" })
     @SlashChoice({ name: "Coderunner", value: "<@934178009664069632>" })
     @SlashChoice({ name: "Funtimes909", value: "<@652755888230236160>" })
+    @SlashChoice({ name: "Festive", value: "<@958165110352928818>" })
     @SlashOption({
       name: "user",
       description: "Common users who should shut the fuck up",
