@@ -11,7 +11,8 @@ import log4js from "log4js";
 dotenv.config();
 //import publicIp from 'public-ip';
 //const ipv4 = await publicIp.v4();
-const appenders = process.env.DEBUG=='0' ? ["file", "out"] : ["out"]
+//const appenders = process.env.DEBUG=='0' ? ["file", "out"] : ["out"]
+const appenders = ["file", "out"]
 log4js.configure({
   appenders: {
     out: { type: "stdout" },
