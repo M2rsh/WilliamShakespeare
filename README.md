@@ -21,6 +21,6 @@
 
 # 📜 Documentation
 
-> **[discord-ts.js.org](https://discord-ts.js.org)**
+> **[Discordx.js.org](https://discordx.js.org/)**
 
 > **[Tutorials (dev.to)](https://dev.to/oceanroleplay/series/14317)**
