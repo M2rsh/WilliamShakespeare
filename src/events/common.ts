@@ -25,7 +25,6 @@ export class commonEvents {
       // memory leak moment
     });
     if (!interaction.isCommand()) return;
-    if(interaction.user.id==="928754943064678481") { interaction.channel?.send("<@928754943064678481> is gay") }
     botLogger.info(
       `User: '${interaction.user?.tag}', Command: '${interaction.commandName}', Options '${interaction.options.data.map((o) => ` ${o.name}: "${o.value}"`)} '.`
     );
