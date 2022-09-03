@@ -8,6 +8,7 @@ import { log, Authenticated } from "../utils/api.js";
 @Router()
 export class API {
   @Get()
+  @Middleware(Authenticated)
   guilds(ctx: Context, next: Next): Promise<Next> {
     ctx.type = "application/json";
     ctx.body = JSON.parse(

@@ -64,9 +64,8 @@ export class API {
         </h1>
   
         <h2>Routes:</h2>
-        <div class="separator">Public</div>
-        <p><a href="guilds">Guilds</a></p>
         <div class="separator">Requires authentication</div>
+        <p><a href="guilds">Guilds</a></p>
         <p><a href="logs">Logs</a></p>
       </div>
     </body>
