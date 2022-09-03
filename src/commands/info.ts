@@ -14,11 +14,11 @@ export class Command {
                 .setDescription(`${interaction.client.user}'s info`)
                 .setColor("#c4a7e7")
                 .addFields(
-                    { name: "Version", value: `${process.env.WS_VERSION}` },
-                    { name: "Owner", value: `<@846298981797724161>` },
-                    { name: "Library", value: `[Discordx Link](https://www.npmjs.com/package/discordx)` },
-                    { name: "Source", value: `[Github Link](https://github.com/M2rsh/WilliamShakespeare)` },
-                    { name: "API", value: `[API Link](http://bot.m2rsh.cf/)` },
+                    { name: "Version", value: `${process.env.WS_VERSION}`, inline: true },
+                    { name: "Owner", value: `<@846298981797724161>`, inline: true },
+                    { name: "Library", value: `[Discordx Link](https://www.npmjs.com/package/discordx)`, inline: true },
+                    { name: "Source", value: `[Github Link](https://github.com/M2rsh/WilliamShakespeare)`, inline: true },
+                    { name: "API", value: `[API Link](http://bot.m2rsh.cf/)`, inline: true },
                     { name: 'Servers', value: `${interaction.client.guilds.cache.size}`, inline: true },
                     { name: 'Cached Users', value: `${interaction.client.users.cache.size}`, inline: true },
                     { name: 'Channels', value: `${interaction.client.channels.cache.size}`, inline: true },

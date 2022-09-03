@@ -11,7 +11,7 @@ import log4js from "log4js";
 dotenv.config();
 //import publicIp from 'public-ip';
 //const ipv4 = await publicIp.v4();
-
+const appenders = process.env.DEBUG ? ["file", "out"] : ["out"]
 log4js.configure({
   appenders: {
     out: { type: "stdout" },
@@ -23,11 +23,16 @@ log4js.configure({
     },
   },
   categories: {
-    default: { appenders: ["out", "file"], level: "info" },
+    default: { appenders: appenders, level: "info" },
+    BOT: { appenders: appenders, level: "info" },
+    API: { appenders: appenders, level: "info" },
   },
 });
-export const logger = log4js.getLogger("default");
-logger.addContext("date", Date.now());
+
+export const botLogger = log4js.getLogger("BOT");
+botLogger.addContext("date", Date.now());
+export const apiLogger = log4js.getLogger("API");
+apiLogger.addContext("date", Date.now());
 
 export const bot = new Client({
   // To only use global commands (use @Guild for specific guild command), comment this line
@@ -61,7 +66,7 @@ bot.once("ready", async () => {
 
   bot.user!.setActivity(`Thy mum's moaning`, { type: ActivityType.Listening });
 
-  logger.log("Info", `Bot Started. Version: ${process.env.WS_VERSION}`);
+  botLogger.log("Info", `Started. Version: ${process.env.WS_VERSION}`);
 });
 
 bot.on("interactionCreate", (interaction: Interaction) => {
@@ -94,7 +99,7 @@ async function run() {
   await server.build();
   const port = process.env.PORT ?? 3000;
   server.listen(port, () => {
-    logger.log("Info", `API Server Started. Visit http://localhost:${port}/`);
+    apiLogger.log("Info", `Server Started. Visit http://localhost:${port}/`);
   });
 }
 

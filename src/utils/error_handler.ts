@@ -1,4 +1,4 @@
-import { logger } from "../main.js";
+import { botLogger } from "../main.js";
 import { EmbedBuilder } from "discord.js";
 import { replyOrFollowUp } from "./utils.js";
 
@@ -17,7 +17,7 @@ export async function ErrorHandler(e: any, interaction: any) {
         msg.delete();
       }, 15000);
     });
-  logger.error(
+  botLogger.error(
     e,
     `User: '${interaction.user?.username}' - '${interaction.user?.id}'`
   );

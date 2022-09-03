@@ -1,4 +1,4 @@
-import { CommandInteraction, Interaction, InteractionReplyOptions, MessageComponentInteraction, PermissionResolvable } from "discord.js";
+import { CommandInteraction, InteractionReplyOptions, MessageComponentInteraction, PermissionResolvable } from "discord.js";
 
 const units : any = {
     year: 24 * 60 * 60 * 1000 * 365,

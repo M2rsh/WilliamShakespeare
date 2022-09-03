@@ -16,7 +16,7 @@ export class Command {
         interaction: CommandInteraction
     ): Promise<void> {
         try {
-            if (question.length > 2000) { return ErrorHandler("Question's lenght cannot be over 2000 characters", interaction) }
+            if (question.length > 2000) { return ErrorHandler("Question's lenght cannot be over 2000 characters.", interaction) }
             const embed = new EmbedBuilder()
                 .setDescription(`${interaction.user} asked a question`)
                 .setFields({ name: "Question", value: question },{ name: "Answer", value: responses[Math.floor(Math.random() * responses.length)] })

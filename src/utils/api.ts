@@ -1,10 +1,10 @@
 import { createHash } from "crypto";
 import type { Context, Next } from "koa";
-import { logger } from "../main.js";
+import { apiLogger } from "../main.js";
 
 export function log(ctx: Context, next: Next) {
     const identification = `${createHash('sha256').update(ctx.ip).digest('hex')}`.substring(0, 16);
-    logger.info(`Request: ${ctx.method}, ${ctx.url} by ${identification}`);
+    apiLogger.info(`Request: ${ctx.method}, ${ctx.url} by ${identification}`);
     return next();
 }
 

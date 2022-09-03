@@ -13,8 +13,8 @@ export class Command {
     interaction: CommandInteraction
   ): Promise<void> {
     try {
-        if (max > 2000 || min > 2000) { return ErrorHandler("Maximum number is 2000", interaction) }
-        if (min >= max) { return ErrorHandler("Minimum number must be smaller than maximum", interaction) }
+        if (max > 2000 || min > 2000) { return ErrorHandler("Maximum number is 2000.", interaction) }
+        if (min >= max) { return ErrorHandler("Minimum number must be smaller than maximum.", interaction) }
         const embed = new EmbedBuilder()
             .setFields({name: `Random number between ${min}-${max}`, value: Math.floor((Math.random() * (max-min)) + min).toString()})
             .setColor("#c4a7e7")

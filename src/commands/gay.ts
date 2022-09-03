@@ -26,7 +26,7 @@ export class Command {
       const _opacity = __opacity || 40
       if(_opacity<0 || _opacity>100) {
         
-        ErrorHandler('Invalid opacity. Use value between 0 and 100', interaction)
+        ErrorHandler('Invalid opacity. Use value between 0 and 100.', interaction)
         return
       }
       const opacity = _opacity / 100

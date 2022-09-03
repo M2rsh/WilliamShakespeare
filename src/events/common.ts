@@ -1,10 +1,11 @@
 import type { ArgsOf, Client } from "discordx";
 import { Discord, On } from "discordx";
-import { logger } from "../main.js";
-import { ErrorHandler } from "../utils/error_handler.js";
+import { botLogger } from "../main.js";
+//import { ErrorHandler } from "../utils/error_handler.js";
+
 @Discord()
 export class commonEvents {
-  @On({event:"guildCreate"}) // I have no idea if this is still necesary but im too lazy to check so it will just be here in case lol
+  /*@On({event:"guildCreate"}) // I have no idea if this is still necesary but im too lazy to check so it will just be here in case lol
   async onGuildCreate(
     [interaction]: ArgsOf<"guildCreate">,
     client: Client
@@ -12,7 +13,7 @@ export class commonEvents {
     await client.guilds.fetch();
     await client.initApplicationCommands();
     //logger.info(`Guild: '${interaction.name}', ID: '${interaction.id}'`);
-  }
+  }*/
   @On({event:"interactionCreate"})
   onInteraction(
     [interaction]: ArgsOf<"interactionCreate">,
@@ -25,7 +26,7 @@ export class commonEvents {
     });
     if (!interaction.isCommand()) return;
     if(interaction.user.id==="928754943064678481") { interaction.channel?.send("<@928754943064678481> is gay") }
-    logger.info(
+    botLogger.info(
       `User: '${interaction.user?.tag}', Command: '${interaction.commandName}', Options '${interaction.options.data.map((o) => ` ${o.name}: "${o.value}"`)} '.`
     );
   }
