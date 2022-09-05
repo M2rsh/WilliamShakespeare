@@ -66,7 +66,7 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
-      if (title === undefined && (description === undefined or description === "\\n")) {
+      if (title === undefined && description === undefined) {
         title = "Someone forgot to add a title and a description";
         description = "May this user drown in laughter";
       }
