@@ -66,6 +66,9 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
+      description
+        ? (description = description.replaceAll("\\n", "\n"))
+        : void 0;
       if (
         title === undefined &&
         (description === undefined || description.match(/^\s*$/))
@@ -75,9 +78,7 @@ export class Command {
       }
       const embed = new EmbedBuilder().setColor(colour || "#c4a7e7");
       title ? embed.setTitle(title) : void 0;
-      description
-        ? embed.setDescription(description.replaceAll("\\n", "\n"))
-        : void 0;
+      description ? embed.setDescription(description) : void 0;
       timestamp ? embed.setTimestamp() : void 0;
 
       interaction.reply({ embeds: [embed] });
