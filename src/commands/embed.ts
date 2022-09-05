@@ -1,7 +1,7 @@
 import {
   ApplicationCommandOptionType,
   CommandInteraction,
-  EmbedBuilder
+  EmbedBuilder,
 } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
@@ -11,7 +11,7 @@ export class Command {
   @Slash({
     name: "embed",
     description: "Create an Embed",
-    dmPermission: true
+    dmPermission: true,
   })
   async command(
     @SlashOption({
@@ -66,16 +66,20 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
-      if (title === undefined && description === undefined) {
+      if (
+        title === undefined &&
+        (description === undefined || description.match(/^\s*$/))
+      ) {
         title = "Someone forgot to add a title and a description";
         description = "May this user drown in laughter";
       }
-      const embed = new EmbedBuilder()
-        .setColor(colour || "#c4a7e7");
+      const embed = new EmbedBuilder().setColor(colour || "#c4a7e7");
       title ? embed.setTitle(title) : void 0;
-      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : void 0;
+      description
+        ? embed.setDescription(description.replaceAll("\\n", "\n"))
+        : void 0;
       timestamp ? embed.setTimestamp() : void 0;
-      
+
       interaction.reply({ embeds: [embed] });
     } catch (e) {
       await ErrorHandler(e, interaction);
