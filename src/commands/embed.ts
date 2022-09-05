@@ -66,17 +66,16 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
-      if (title === undefined && description === undefined) {
-        title = "Someone forgot to add a title or a description";
+      if (title === undefined && description === undefined && description != "\\n") {
+        title = "Someone forgot to add a title and a description";
         description = "May this user drown in laughter";
       }
       const embed = new EmbedBuilder()
         .setColor(colour || "#c4a7e7");
-      title ? embed.setTitle(title) : await ErrorHandler("Title is invalid.", interaction);
-      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : await ErrorHandler("Description is invalid.", interaction);
-      if (timestamp) {
-        embed.setTimestamp();
-      }
+      title ? embed.setTitle(title) : void 0;
+      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : void 0;
+      timestamp ? embed.setTimestamp() : void 0;
+      
       interaction.reply({ embeds: [embed] });
     } catch (e) {
       await ErrorHandler(e, interaction);
