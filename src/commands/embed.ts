@@ -72,8 +72,8 @@ export class Command {
       }
       const embed = new EmbedBuilder()
         .setColor(colour || "#c4a7e7");
-      title ? embed.setTitle(title) : void 0;
-      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : void 0;
+      title ? embed.setTitle(title) : await ErrorHandler("Title is invalid.", interaction);
+      description ? embed.setDescription(description.replaceAll("\\n", "\n")) : await ErrorHandler("Description is invalid.", interaction);
       if (timestamp) {
         embed.setTimestamp();
       }
