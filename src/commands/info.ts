@@ -16,7 +16,7 @@ export class Command {
                 .addFields(
                     { name: "Version", value: `${process.env.WS_VERSION}`, inline: true },
                     { name: "Owner", value: `<@846298981797724161>`, inline: true },
-                    { name: "Library", value: `[Discordx Link](https://www.npmjs.com/package/discordx)`, inline: true },
+                    { name: "Discord Server", value: `[Server Link](https://discord.gg/dfKMTx9Eea)`, inline: true },
                     { name: "Source", value: `[Github Link](https://github.com/M2rsh/WilliamShakespeare)`, inline: true },
                     { name: "API", value: `[API Link](http://bot.m2rsh.cf/)`, inline: true },
                     { name: 'Servers', value: `${interaction.client.guilds.cache.size}`, inline: true },
