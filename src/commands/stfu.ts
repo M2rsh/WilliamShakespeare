@@ -12,6 +12,8 @@ export class Command {
     @SlashChoice({ name: "Lizzy Bo Bizzy Mc Skizzy", value: "<@846298981797724161>" })
     @SlashChoice({ name: "Festive", value: "<@958165110352928818>" })
     @SlashChoice({ name: "Spidgy", value: "<@552957652955693087>" })
+    @SlashChoice({ name: "Duper Trooper", value: "<@609551301730369547>" })
+    @SlashChoice({ name: "Duper Trooper", value: "<@459554887316013067>" })
      
     @SlashOption({
       name: "user",
