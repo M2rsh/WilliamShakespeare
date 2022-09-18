@@ -13,6 +13,7 @@ export class Command {
     @SlashChoice({ name: "Festive", value: "<@958165110352928818>" })
     @SlashChoice({ name: "Spidgy", value: "<@552957652955693087>" })
     @SlashChoice({ name: "Duper Trooper", value: "<@609551301730369547>" })
+    @SlashChoice({ name: "ඞ", value: "<@769708697731465256>" })
      
     @SlashOption({
       name: "user",
