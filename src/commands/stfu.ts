@@ -4,7 +4,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
 export class Command {
-  @Slash({name: "stfu", description: "Shut the fuck up boyetrash", dmPermission: true })
+  @Slash({name: "stfu", description: "Common users who should super glue their fucking assholes shut", dmPermission: true })
   async command(
     @SlashChoice({ name: "Boyetrash", value: "<@560205926758612994>" })
     @SlashChoice({ name: "Coderunner", value: "<@934178009664069632>" })
@@ -13,7 +13,6 @@ export class Command {
     @SlashChoice({ name: "Festive", value: "<@958165110352928818>" })
     @SlashChoice({ name: "Spidgy", value: "<@552957652955693087>" })
     @SlashChoice({ name: "Duper Trooper", value: "<@609551301730369547>" })
-    @SlashChoice({ name: "Duper Trooper", value: "<@459554887316013067>" })
      
     @SlashOption({
       name: "user",
