@@ -12,7 +12,7 @@ export class Command {
     })
   )
   async command(
-    @SlashOption({ name: "user", description: "User", type: ApplicationCommandOptionType.User, })
+    @SlashOption({ name: "user", description: "User", type: ApplicationCommandOptionType.User, required: true})
     _user: User,
     @SlashOption({ name: "reason", description: "Reason", type: ApplicationCommandOptionType.String, required: false})
     reason: string | undefined,

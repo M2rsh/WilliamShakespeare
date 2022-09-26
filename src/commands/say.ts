@@ -1,5 +1,5 @@
 import { RateLimit, TIME_UNIT } from "@discordx/utilities";
-import { CommandInteraction } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction } from "discord.js";
 import { Discord, Guard, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
@@ -10,7 +10,7 @@ export class Command {
     message: "This command is on cooldown. Please wait until {until}.", ephemeral: true
   }))
   async command(
-    @SlashOption({name: "text", description: "What do you want me to say?" })
+    @SlashOption({name: "text", description: "What do you want me to say?", required: true, type: ApplicationCommandOptionType.String })
     text: string,
     interaction: CommandInteraction
   ): Promise<void> {

@@ -1,4 +1,4 @@
-import { CommandInteraction, EmbedBuilder } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction, EmbedBuilder } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
@@ -11,7 +11,7 @@ const responses = ["As I see it, yes.", "Ask again later.", "Better not tell you
 export class Command {
     @Slash({ name: "8ball", description: "8ball of wisdom", dmPermission: true })
     async command(
-        @SlashOption({ name: "question", description: "What is your question?" })
+        @SlashOption({ name: "question", description: "What is your question?", required: true, type:ApplicationCommandOptionType.String })
         question: string,
         interaction: CommandInteraction
     ): Promise<void> {

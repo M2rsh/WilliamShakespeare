@@ -5,7 +5,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 export class Command {
   @Slash({name: "rate", description: "Rate something", dmPermission: true })
   async command(
-    @SlashOption({name: "thing", description: "Thing to rate" }) thing: string,
+    @SlashOption({name: "thing", description: "Thing to rate", required: true, type: ApplicationCommandOptionType.String }) thing: string,
     @SlashOption({
       name: "user",
       description: "User to rate",

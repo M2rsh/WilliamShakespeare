@@ -6,9 +6,9 @@ import { ErrorHandler } from "../utils/error_handler.js";
 export class Command {
   @Slash({name: "random", description: "Sends a random number", dmPermission: true })
   async command(
-    @SlashOption({name: "min", description: "Minimum number", type: ApplicationCommandOptionType.Integer })
+    @SlashOption({name: "min", description: "Minimum number", type: ApplicationCommandOptionType.Integer, required: true })
     min: number,
-    @SlashOption({name: "max", description: "Maximum number", type: ApplicationCommandOptionType.Integer })
+    @SlashOption({name: "max", description: "Maximum number", type: ApplicationCommandOptionType.Integer, required: true })
     max: number,
     interaction: CommandInteraction
   ): Promise<void> {
