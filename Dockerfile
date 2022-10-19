@@ -32,5 +32,9 @@ RUN npm install --only=production
 # Move build files
 COPY --from=build-runner /tmp/app/build /app/build
 
+# Expose 80 port
+EXPOSE 80
+
 # Start bot
 CMD [ "node", "build/main.js" ]
+
