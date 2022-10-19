@@ -6,3 +6,6 @@ services:
     env_file: .env
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
+      - PORT=${PORT}
+      - AUTH_KEY=${AUTH_KEY}
+      - WS_VERSION=${WS_VERSION}
