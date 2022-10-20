@@ -4,6 +4,8 @@
         "module": "ESNext",
         "outDir": "build",
         "rootDir": "src",
+        "types": ["node"],
+        "typeRoots": ["node_modules/@types"],
         "strict": true,
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,

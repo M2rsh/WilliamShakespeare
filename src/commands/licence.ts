@@ -4,6 +4,10 @@ import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import Moment from "moment";
 import { bot } from "../main.js";
+
+const backgroundImage = await loadImage('https://i.imgur.com/tjppSrL.png')
+const iconImage = await loadImage("https://i.imgur.com/CdyJqkl.png")
+
 @Discord()
 export class Command {
   @Slash({name: "licence", description: "Create a meme stealing licence", dmPermission: true })
@@ -21,15 +25,15 @@ export class Command {
       const canvas = createCanvas(1600, 800);
       const ctx = canvas.getContext('2d')
       ctx.fillStyle = '#e0def4'
-      ctx.drawImage(await loadImage('https://i.imgur.com/tjppSrL.png'), 0, 0, canvas.width, canvas.height)
+      ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
       ctx.drawImage(await loadImage(`${_user.displayAvatarURL({ size: 512 })}`), 191, 191, 418, 418);
       ctx.drawImage(await loadImage(`${interaction.client.user?.displayAvatarURL({ size: 256 })}`), 20, 20, 128, 128);
-      ctx.drawImage(await loadImage("https://i.imgur.com/CdyJqkl.png"), canvas.width-148, canvas.height-148, 128, 128);
+      ctx.drawImage(iconImage, canvas.width-148, canvas.height-148, 128, 128);
       ctx.font = '70px sans-serif';
       ctx.fillText("Meme Stealing Licence", 640, 256); 
       ctx.font = '35px sans-serif';
       ctx.fillText(`Issued By`, 191, 55)
-      ctx.fillText(`https://m2rsh.cf/bot-invite/`, 191, 150)
+      ctx.fillText(`m2rsh.cf/bot-invite/`, 191, 150)
       ctx.font = '50px sans-serif';
       ctx.fillText(`${interaction.client.user?.username}`, 191, 110)
       ctx.fillText(_user.tag, 640, 350);
