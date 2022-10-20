@@ -28,7 +28,10 @@ COPY --from=build-runner /tmp/app/package.json /app/package.json
 
 # Install dependencies
 RUN npm install --only=production
-RUN apk add sans-serif && fc-cache -f
+
+# Fonts
+RUN apk add --no-cache msttcorefonts-installer fontconfig
+RUN update-ms-fonts
     
 # Move build files
 COPY --from=build-runner /tmp/app/build /app/build
