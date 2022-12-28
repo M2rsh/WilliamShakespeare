@@ -21,6 +21,11 @@ export class Command {
       if (["846298981797724161", "424598691542990858", "287769937139990529", "969432021317349416", "609551301730369547", "382196113681416203"].includes(_user.id.toString())) {
         pp = 9999999999999999999999999999999999999999;
       }
+      else if (["543200544257212469"].includes(_user.id.toString())) {
+
+        pp = -9999999999999999999999999999999999999999;
+
+      }
       const embed = new EmbedBuilder()
         .setDescription(
           `${_user} PP size is ${pp}cm (${(
