@@ -25,8 +25,7 @@ export class Command {
     interaction: CommandInteraction
   ): Promise<void> {
     try {
-      await interaction.deferReply({ ephemeral: true });
-      interaction.channel?.send({ content: `Shut the fuck up ${user ? user : "<@560205926758612994>"}` });
+      interaction.reply({ content: `Shut the fuck up ${user ? user : "<@560205926758612994>"}` });
     } catch (e) {
       await ErrorHandler(e, interaction);
     }
