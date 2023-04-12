@@ -11,3 +11,4 @@ CHANGELOG.md
 .turbo
 build
 node_modules
+logs
