@@ -14,11 +14,10 @@ export class Command {
                 .setDescription(`${interaction.client.user}'s info`)
                 .setColor("#c4a7e7")
                 .addFields(
-                    { name: "Version", value: `${process.env.WS_VERSION}`, inline: true },
-                    { name: "Owner", value: `<@846298981797724161>`, inline: true },
+                    { name: "Version", value: `${process.env.WS_VERSION}`, inline: true }, 
                     { name: "Discord Server", value: `[Server Link](https://discord.gg/dfKMTx9Eea)`, inline: true },
+                    { name: "Contributors", value: `<@846298981797724161> <@616296179302400001> <@652755888230236160> <@259558259491340288>`, inline: true },
                     { name: "Source", value: `[Github Link](https://github.com/M2rsh/WilliamShakespeare)`, inline: true },
-                    { name: "API", value: `[API Link](http://bot.m2rsh.cf/)`, inline: true },
                     { name: 'Servers', value: `${interaction.client.guilds.cache.size}`, inline: true },
                     { name: 'Cached Users', value: `${interaction.client.users.cache.size}`, inline: true },
                     { name: 'Channels', value: `${interaction.client.channels.cache.size}`, inline: true },
