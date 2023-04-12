@@ -6,7 +6,7 @@ import { ErrorHandler } from "../utils/error_handler.js";
 @Discord()
 export class Command {
   @Slash({name: "say", description: "Say something as bot", dmPermission: true })
-  @Guard(RateLimit(TIME_UNIT.seconds, 2, {
+  @Guard(RateLimit(TIME_UNIT.seconds, 5, {
     message: "This command is on cooldown. Please wait until {until}.", ephemeral: true
   }))
   async command(
@@ -15,11 +15,15 @@ export class Command {
     interaction: CommandInteraction
   ): Promise<void> {
     try {
-      var text = text.replaceAll("@", "@\u200B");
+      var text = text.replaceAll("@everyone", "@\u200Beveryone");
       text.length > 2000 ? (text = text.substring(0, 2000)) : text;
-      //await interaction.deferReply({ ephemeral: true });
-      //interaction.channel?.send({ content: text });
-      interaction.reply({ content: text })
+      // Allow a little bit of trolling.
+      if (text.indexOf("<@") > -1) {
+        await interaction.reply({ content: text, ephemeral: true });
+        interaction.channel?.send({ content: text });
+      } else{
+        interaction.reply({ content: text })
+      }
     } catch (e) {
       await ErrorHandler(e, interaction);
     }

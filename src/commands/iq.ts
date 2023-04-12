@@ -15,11 +15,10 @@ export class Command {
     interaction: CommandInteraction
   ) {
     try {
+      const iq = Math.floor(Math.random() * 200);
       const embed = new EmbedBuilder()
         .setDescription(
-          `${user ? user : interaction.user} IQ is ${Math.floor(
-            Math.random() * 200
-          )}`
+          `${user ? user : interaction.user} ${iq <= 10 ? "has extreme brain damage, with an IQ of" : "IQ is"} ${iq}`
         )
         .setColor("#c4a7e7")
         .setTimestamp();
