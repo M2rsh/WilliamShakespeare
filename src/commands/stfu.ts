@@ -14,6 +14,7 @@ export class Command {
     @SlashChoice({ name: "Spidgy", value: "<@552957652955693087>" })
     @SlashChoice({ name: "Duper Trooper", value: "<@609551301730369547>" })
     @SlashChoice({ name: "ඞ", value: "<@769708697731465256>" })
+    @SlashChoice({ name: "Random Idiot", value: "<@1000867438369452072>" })
      
     @SlashOption({
       name: "user",
@@ -25,7 +26,7 @@ export class Command {
     interaction: CommandInteraction
   ): Promise<void> {
     try {
-      interaction.reply({ content: `Shut the fuck up ${user ? user : "<@560205926758612994>"}` });
+      interaction.reply({ content: `Shut the fuck up ${user ? user : "<@560205926758612994>"}, Please genuinely shut the fuck up stop talking please I'm fucking begging` });
     } catch (e) {
       await ErrorHandler(e, interaction);
     }
