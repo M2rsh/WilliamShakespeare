@@ -34,7 +34,7 @@ export class Command {
       const ctx = canvas.getContext('2d')
       ctx.drawImage(await loadImage(`${_user.displayAvatarURL({ size: 512 })}`), 0, 0, canvas.height, canvas.width);
       ctx.globalAlpha = opacity || 80 / 100;
-      ctx.drawImage(await loadImage("https://i.imgur.com/cfyergX.jpg"), 0, 0, canvas.height, canvas.width)
+      ctx.drawImage(await loadImage("../assets/images/gay.png"), 0, 0, canvas.height, canvas.width)
       ctx.globalAlpha = 1;
       //ctx.font = '48px "Roboto"';
       //ctx.strokeText("balls", 256, 256);
