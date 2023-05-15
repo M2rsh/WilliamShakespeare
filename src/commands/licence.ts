@@ -5,8 +5,8 @@ import { ErrorHandler } from "../utils/error_handler.js";
 import Moment from "moment";
 import { bot } from "../main.js";
 
-const backgroundImage = await loadImage('https://i.imgur.com/tjppSrL.png')
-const iconImage = await loadImage("https://i.imgur.com/CdyJqkl.png")
+const backgroundImage = await loadImage("./src/assets/images/licence.png")
+const iconImage = await loadImage("./src/assets/images/icon.png")
 
 @Discord()
 export class Command {
