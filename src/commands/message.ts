@@ -8,8 +8,6 @@ import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 import { botLogger } from "../main.js";
 
-botLogger.log("Info", process.env.WEBHOOK_URL);
-
 var webhook: any;
 if (process.env.WEBHOOK_URL) {
   webhook = new WebhookClient({
