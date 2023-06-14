@@ -2,7 +2,7 @@ import {
   ApplicationCommandOptionType,
   CommandInteraction,
   EmbedBuilder,
-  WebhookClient,
+  WebhookClient
 } from "discord.js";
 import { Discord, Slash, SlashOption } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
@@ -11,7 +11,7 @@ import { botLogger } from "../main.js";
 var webhook: any;
 if (process.env.WEBHOOK_URL) {
   webhook = new WebhookClient({
-    url: process.env.WEBHOOK_URL,
+    url: process.env.WEBHOOK_URL
   });
   botLogger.log("Info", `Webhook Initialized Successfully`);
 }
@@ -21,14 +21,14 @@ export class Command {
   @Slash({
     name: "message",
     description: "Send a message to a special channel",
-    dmPermission: true,
+    dmPermission: true
   })
   async command(
     @SlashOption({
       name: "message",
       description: "Message to send",
       required: true,
-      type: ApplicationCommandOptionType.String,
+      type: ApplicationCommandOptionType.String
     })
     message: string,
     interaction: CommandInteraction
@@ -43,7 +43,7 @@ export class Command {
       webhook.send({
         username: interaction.user.username,
         avatarURL: interaction.user.avatarURL(),
-        embeds: [embed],
+        embeds: [embed]
       });
 
       interaction.reply({
@@ -51,8 +51,8 @@ export class Command {
           new EmbedBuilder()
             .setDescription(`Message sent`)
             .setColor("#c4a7e7")
-            .setTimestamp(),
-        ],
+            .setTimestamp()
+        ]
       });
     } catch (e) {
       await ErrorHandler(e, interaction);
