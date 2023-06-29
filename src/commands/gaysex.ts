@@ -1,6 +1,5 @@
-import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { ApplicationCommandOptionType, AttachmentBuilder, Colors, CommandInteraction, EmbedBuilder, User } from "discord.js";
-import { Discord, Slash, SlashOption } from "discordx";
+import { CommandInteraction, } from "discord.js";
+import { Discord, Slash } from "discordx";
 import { ErrorHandler } from "../utils/error_handler.js";
 
 @Discord()
