@@ -18,7 +18,7 @@ export class Command {
     try {
       this.updateTrolling();
       let contextID = interaction.user.id + "-" + interaction.channel?.id;
-      text = text.replaceAll("@everyone", "@\u200Beveryone");
+      text = text.replaceAll("@", "@\u200B");
       let cope = text.indexOf("<@") > -1 || trollingCache.has(contextID);
       text.length > 2000 ? (text = text.substring(0, 2000)) : text;
       // Allow a little bit of trolling.
