@@ -5,6 +5,12 @@ import { ErrorHandler } from "../utils/error_handler.js";
 
 let trollingCache: Map<string, number> = new Map();
 
+function sanitizeMessage(message: string): string {
+    const pattern = /<@!?(\d+)>|@(everyone|here|&\d+)/g;
+    const replacement = (match: string, p1: string, p2: string): string => p1 ? match : '@lol no';
+    return message.replace(pattern, replacement)
+}
+
 @Discord()
 export class Command {
   @Slash({name: "say", description: "Say something as bot", dmPermission: true })
@@ -18,7 +24,7 @@ export class Command {
     try {
       this.updateTrolling();
       let contextID = interaction.user.id + "-" + interaction.channel?.id;
-      text = text.replaceAll("@", "@\u200B");
+      text = sanitizeMessage(text)
       let cope = text.indexOf("<@") > -1 || trollingCache.has(contextID);
       text.length > 2000 ? (text = text.substring(0, 2000)) : text;
       // Allow a little bit of trolling.
